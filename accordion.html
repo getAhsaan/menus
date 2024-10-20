@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+
+    <!-- Custom CSS  -->
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        section {
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+        }
+
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 18px;
+            cursor: pointer;
+            transition: 0.4s;
+            font-size: 15px;
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.2s ease-out;
+        }
+
+        .accordion:after {
+            content: '\002B';
+            color: #777;
+            font-weight: bold;
+            float: right;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>Accordion</h1>
+        <button class="accordion">Section 1</button>
+        <div class="panel">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo qui, non veritatis natus illo earum
+                ad sit, obcaecati alias, in temporibus ullam reprehenderit facere eligendi? Nihil impedit neque quisquam
+                eveniet natus eligendi iusto accusantium fugit, hic, nisi ipsa at iste consequuntur sed? Accusantium
+                deleniti eius expedita nostrum nisi libero dolore nulla, quod cupiditate odit dolor praesentium eum
+                autem, ad dicta at ea id adipisci, iure minus porro vitae suscipit ipsa. Exercitationem perspiciatis
+                soluta, molestiae laudantium nihil, enim doloremque libero quasi facilis eum, atque reprehenderit hic
+                numquam sunt velit quam explicabo odit sit ipsum. Quasi fugit deserunt qui! Fugit, quisquam in?</p>
+        </div>
+
+        <button class="accordion">Section 2</button>
+        <div class="panel">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo qui, non veritatis natus illo earum
+                ad sit, obcaecati alias, in temporibus ullam reprehenderit facere eligendi? Nihil impedit neque quisquam
+                eveniet natus eligendi iusto accusantium fugit, hic, nisi ipsa at iste consequuntur sed? Accusantium
+                deleniti eius expedita nostrum nisi libero dolore nulla, quod cupiditate odit dolor praesentium eum
+                autem, ad dicta at ea id adipisci, iure minus porro vitae suscipit ipsa. Exercitationem perspiciatis
+                soluta, molestiae laudantium nihil, enim doloremque libero quasi facilis eum, atque reprehenderit hic
+                numquam sunt velit quam explicabo odit sit ipsum. Quasi fugit deserunt qui! Fugit, quisquam in?</p>
+        </div>
+        <button class="accordion">Section 3</button>
+        <div class="panel">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo qui, non veritatis natus illo earum
+                ad sit, obcaecati alias, in temporibus ullam reprehenderit facere eligendi? Nihil impedit neque quisquam
+                eveniet natus eligendi iusto accusantium fugit, hic, nisi ipsa at iste consequuntur sed? Accusantium
+                deleniti eius expedita nostrum nisi libero dolore nulla, quod cupiditate odit dolor praesentium eum
+                autem, ad dicta at ea id adipisci, iure minus porro vitae suscipit ipsa. Exercitationem perspiciatis
+                soluta, molestiae laudantium nihil, enim doloremque libero quasi facilis eum, atque reprehenderit hic
+                numquam sunt velit quam explicabo odit sit ipsum. Quasi fugit deserunt qui! Fugit, quisquam in?</p>
+        </div>
+
+    </section>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
